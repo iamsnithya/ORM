@@ -26,25 +26,25 @@ Execute Django admin and create details for 10 books
 admin.py
 
 from django.contrib import admin
-from .models import Book
-class BookAdmin(admin.ModelAdmin):
-    list_display = ('book_id', 'title', 'author', 'genre', 'published_year', 'rating')
-admin.site.register(Book, BookAdmin)
+from .models import Movie
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('movie_id', 'title', 'genre', 'release_year', 'director', 'rating')
+
+admin.site.register(Movie, MovieAdmin)
 
 models.py
 
 from django.db import models
-class Book(models.Model):
-    book_id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
+class Movie(models.Model):
+    movie_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
-    published_year = models.IntegerField()
+    release_year = models.IntegerField()
+    director = models.CharField(max_length=100)
     rating = models.FloatField()
 
     def __str__(self):
         return self.title
-
 ~~~
 
 
@@ -52,7 +52,8 @@ class Book(models.Model):
 ## OUTPUT
 
 Include the screenshot of your admin page.
-![image](https://github.com/user-attachments/assets/4f824940-755a-4f37-a5e4-378b20d06f68)
+![image](https://github.com/user-attachments/assets/400e2318-d3d4-42bc-8182-2dd08dc7ea12)
+
 
 
 
